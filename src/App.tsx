@@ -13,3 +13,4 @@ export const App: React.FC = () => (
 		</CartContextProvider>
 	</ThemeProvider>
 );
+
