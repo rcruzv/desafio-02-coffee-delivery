@@ -1,11 +1,11 @@
-import { Route, Routes } from 'react-router-dom';
-import { Home } from './pages/Home';
-import { Checkout } from './pages/Checkout';
-import { Success } from './pages/Success';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { DefaultLayout } from './layouts/DefaultLayout';
+import { Checkout } from './pages/Checkout';
+import { Home } from './pages/Home';
+import { Success } from './pages/Success';
 
-export function Router() {
-	return (
+export const Router: React.FC = () => (
+	<BrowserRouter>
 		<Routes>
 			<Route
 				path='/'
@@ -25,5 +25,6 @@ export function Router() {
 				/>
 			</Route>
 		</Routes>
-	);
-}
+	</BrowserRouter>
+);
+
