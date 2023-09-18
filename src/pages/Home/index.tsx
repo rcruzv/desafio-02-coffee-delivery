@@ -1,12 +1,37 @@
-import { HomeContainer } from './styles';
-import { Intro } from './Intro';
-import { List } from './List';
+import { CoffeeCard } from '../../components/CoffeeCard';
+import { coffees } from '../../data/coffees';
+import { HomeIntro } from './HomeIntro';
+import {
+	CoffeeCards,
+	HomeContainer,
+	HomeInsideContainer,
+	HomeTitle,
+} from './styles';
 
-export function Home() {
-	return (
-		<HomeContainer>
-			<Intro />
-			<List />
-		</HomeContainer>
-	);
+export interface Coffee {
+	id: number;
+	tags: string[];
+	title: string;
+	description: string;
+	price: number;
+	image: string;
 }
+
+export const Home: React.FC = () => (
+	<HomeContainer>
+		<HomeInsideContainer>
+			<HomeIntro />
+			<HomeTitle>Nossos cafés</HomeTitle>
+
+			<CoffeeCards>
+				{coffees.map((coffee) => (
+					<CoffeeCard
+						key={coffee.id}
+						coffee={coffee}
+					/>
+				))}
+			</CoffeeCards>
+		</HomeInsideContainer>
+	</HomeContainer>
+);
+
